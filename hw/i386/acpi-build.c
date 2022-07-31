@@ -1835,7 +1835,7 @@ build_dsdt(GArray *table_data, BIOSLinker *linker,
     }
 
 #ifdef CONFIG_TPM
-    if (TPM_IS_CRB(tpm)) {
+    if (TPM_IS_CRB(tpm) || TPM_IS_CRB_SVSM(tpm)) {
         dev = aml_device("TPM");
         aml_append(dev, aml_name_decl("_HID", aml_string("MSFT0101")));
         crs = aml_resource_template();
